@@ -1,0 +1,68 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+	font-weight: 700;
+}
+
+input {
+	max-width: 200px;
+	padding-left: 2px;
+}
+
+textarea {
+	min-height: 300px;
+	padding-left: 2px;
+	align-self: stretch;
+}
+
+button {
+	align-self: flex-start;
+	cursor: pointer;
+}
+
+#page-nav {
+	display: flex;
+	gap: 10px;
+}
+
+#page-main {
+	flex: 1;
+}
+
+#page-main,
+#login-form,
+#create-form,
+#edit-form,
+#post-list,
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.form-group {
+	gap: 4px;
+}
+
+.card-wrapper {
+	padding: 4px;
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+.card-wrapper:hover {
+	outline: 1px solid black;
+}
