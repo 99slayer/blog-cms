@@ -17,9 +17,11 @@ function postForm() {
 	const titleInput = document.createElement('input');
 	titleInput.setAttribute('type', 'text');
 	titleInput.setAttribute('name', 'title');
+	titleInput.setAttribute('required', '');
 
 	const textInput = document.createElement('textarea');
 	textInput.setAttribute('name', 'text');
+	textInput.setAttribute('required', '');
 
 	const submitBtn = document.createElement('button');
 	submitBtn.textContent = 'SAVE';

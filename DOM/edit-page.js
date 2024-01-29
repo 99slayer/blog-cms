@@ -32,10 +32,12 @@ function editForm(postData) {
 	titleInput.setAttribute('type', 'text');
 	titleInput.setAttribute('name', 'title');
 	titleInput.setAttribute('value', postData.title);
+	titleInput.setAttribute('required', '');
 
 	const textInput = document.createElement('textarea');
 	textInput.setAttribute('name', 'text');
 	textInput.textContent = postData.text;
+	textInput.setAttribute('required', '');
 
 	const submitBtn = document.createElement('button');
 	submitBtn.textContent = 'SAVE';
