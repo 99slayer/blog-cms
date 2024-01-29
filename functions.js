@@ -202,7 +202,6 @@ async function logoutFetch() {
 	const res = await fetch('http://localhost:3000/api/users/logout', {
 		method: 'DELETE',
 		headers: {
-			'Content-Type': 'application/json',
 			'RefreshToken': document.cookie
 		}
 	});
@@ -212,12 +211,7 @@ async function logoutFetch() {
 
 async function postListFetch() {
 	const res = await fetch('http://localhost:3000/api/posts', {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json',
-			'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
-			'RefreshToken': document.cookie
-		},
+		method: 'GET'
 	});
 
 	return res;
@@ -225,12 +219,7 @@ async function postListFetch() {
 
 async function postDetailFetch(id) {
 	const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json',
-			'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
-			'RefreshToken': document.cookie
-		}
+		method: 'GET'
 	});
 
 	return res;
@@ -282,7 +271,6 @@ async function deletePostFetch(id) {
 	const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
 		method: 'DELETE',
 		headers: {
-			'Content-Type': 'application/json',
 			'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
 			'RefreshToken': document.cookie
 		}
@@ -294,20 +282,16 @@ async function deletePostFetch(id) {
 // ----------------------- UTIL FUNCTIONS -------------------------
 
 async function getToken() {
-	console.log('Getting new access token.');
 	const res = await fetch('http://localhost:3000/api/users/token', {
 		method: 'GET',
 		headers: {
-			'Content-Type': 'application/json',
 			'RefreshToken': document.cookie
 		}
 	});
 
 	if (!res.ok) {
-		console.log('Invalid refresh token.');
 		await logout();
 	} else {
-		console.log('Accessed refreshed.');
 		const data = await res.json();
 		localStorage.setItem('accessToken', data.accessToken);
 	}
